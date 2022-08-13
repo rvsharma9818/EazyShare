@@ -1,0 +1,28 @@
+{
+  "name": "eazyshare-backened",
+  "version": "1.0.0",
+  "description": "File Sharing Backened",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Ravi"
+  ],
+  "author": "Ravi",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.825.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.2",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^2.9.0",
+    "nodemailer": "^6.7.8",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2"
+  }
+}
