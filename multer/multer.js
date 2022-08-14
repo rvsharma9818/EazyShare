@@ -11,16 +11,6 @@ require("dotenv").config({
 })
 
 
-// Performing a file filteration 
-
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype.split("/")[0] === "image") {
-    cb(null, true);
-  } else {
-    cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE"));
-  }
-};
-
 
 // config a AWS S3 services
 
@@ -44,6 +34,5 @@ exports.upload = multer({
       cb(null, `uploads/${uuid()}-${file.originalname}`);
     },
   }),
-  fileFilter,
-  limits: { fileSize: 200000000, files: 1 },
+  limits: { files: 1 },
 });
