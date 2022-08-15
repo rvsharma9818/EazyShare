@@ -1,0 +1,70 @@
+
+<div class="logo">
+  <img src="assets/images/logo.png" alt="" class="se">
+</div>
+
+
+<div class="spinner-container" *ngIf="spinner">
+  <div class="spinner">
+  </div>
+</div>
+<form class="form" [formGroup]="myForm" (ngSubmit)="submit()">
+  <h2>Upload a Image</h2>
+
+  <div class="form-group">
+    <label for="email">Attachment:</label>
+    <div class="relative">
+      <div class="input-group">
+        <label class="input-group-btn">
+          <span class="btn btn-default">
+              Browse&hellip; <input type="file" style="display: none;" multiple>
+          </span>
+        </label>
+        <input type="file" class="form-control"(change)="onFileChange($event)"required="" formControlName="myfile" placeholder="Attachment..." >
+        <i class="fa fa-link"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="tright">
+    <a href=""><button class="movebtn movebtnre" type="Reset"><i class="fa fa-fw fa-refresh"></i> Reset </button></a>
+    <a ><button class="movebtn movebtnsu" [disabled]="!myForm.valid" (click)="submit()" (click)="reload()" type="Submit">Submit <i class="fa fa-fw fa-paper-plane"></i></button></a>
+  </div>
+</form>
+<form class="card" *ngIf="data" [formGroup]="myForm2" (ngSubmit)="submit2()">
+  <section>
+    <h1>File share on Mail</h1>
+  </section>
+  <div class="box">
+    <input type="email"  formControlName="emailFrom" required />
+    <span>Sender Mail ID  </span>
+    <i></i>
+  </div>
+  <div class="box">
+    <input type="email" formControlName="emailTo" required  />
+    <span>Recevier Mail ID</span>
+    <i></i>
+  </div>
+  <button type="submit"  (click)="submit2()" class="submit-btn">Next</button>
+</form>
+
+<div class="container"  *ngIf="data">
+
+	<div class="copy-text">
+		<input type="text" class="text" value="{{data.file}}"/>
+		<button (click)="copyText(data.file)" (click)="copy()" ><i class="fa fa-clone"></i> </button>
+	</div>
+</div>
+
+
+
+
+<div class="conn" *ngIf="suc">
+  <img src="https://s2.svgbox.net/hero-outline.svg?ic=check" width="32" height="32">
+    <p>&nbsp;&nbsp;{{msg}}</p>
+</div>
+<br>
+<div class="conn" *ngIf="cop">
+  <img src="https://s2.svgbox.net/hero-outline.svg?ic=check" width="32" height="32">
+    <p>&nbsp;&nbsp;Text Copy Succesfully</p>
+</div>
